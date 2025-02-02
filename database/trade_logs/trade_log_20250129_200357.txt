@@ -1,0 +1,7 @@
+[2025-01-30T04:05:14.991Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-01-30T04:05:15.622Z] Failed to process trade for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: Failed to get swap transaction from Jupiter API
+[2025-01-30T04:05:17.426Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-01-30T04:05:17.427Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T04:05:17.427Z] Waiting for 5 seconds before processing next trade...
+[2025-01-30T04:06:10.017Z] Failed to process trade for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: Transaction failed or expired
+[2025-01-30T04:06:11.793Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi

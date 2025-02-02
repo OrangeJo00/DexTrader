@@ -1,0 +1,34 @@
+# Node
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Build
+dist/
+build/
+*.spec
+DexTraderV2_Distribution*/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+DexTraderV2_logs/
+
+# OS
+.DS_Store
+Thumbs.db

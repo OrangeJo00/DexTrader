@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "@project-serum/anchor": "^0.26.0",
+    "@solana/web3.js": "^1.98.0",
+    "@types/promise-retry": "^1.1.6",
+    "bs58": "^6.0.0",
+    "cross-fetch": "^4.1.0",
+    "dotenv": "^16.4.7",
+    "promise-retry": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/bs58": "^4.0.4",
+    "@types/dotenv": "^8.2.3",
+    "@types/node": "^20.11.0",
+    "@types/promise-retry": "^1.1.6",
+    "typescript": "^4.9.5",
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "start": "ts-node --project trade_execute_service/tsconfig.node.json trade_execute_service/trade.ts",
+    "build": "tsc -p trade_execute_service/tsconfig.json",
+    "preinstall": "npm config set scripts-prepend-node-path true"
+  }
+}

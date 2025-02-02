@@ -1,0 +1,6 @@
+wallet_alias,wallet_address,from_balance,to_balance,from_token_address,to_token_address,assign_group,selected
+test_wallet,CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3,,,So11111111111111111111111111111111111111112,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,,
+test_wallet2,8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi,,,So11111111111111111111111111111111111111112,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,,
+test_wallet3,,,,,,,
+test_wallet4,,,,,,,
+test_wallet5,,,,,,,

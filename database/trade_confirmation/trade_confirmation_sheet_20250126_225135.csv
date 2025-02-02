@@ -1,0 +1,4 @@
+wallet_alias,wallet_address,from_token_address,to_token_address,from_balance_before_execute,to_balance_before_execute,pct_of_balance,coin_amount,delay_seconds,slippage_in_pct
+test_wallet2,8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi,So11111111111111111111111111111111111111112,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,0.2,0.0,2.0%,0.004,5,20
+test_wallet2,8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi,So11111111111111111111111111111111111111112,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,0.2,0.0,2.0%,0.004,5,20
+

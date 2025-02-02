@@ -1,0 +1,7 @@
+[2025-01-30T03:42:20.794Z] Starting to process trade 1/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:43:10.595Z] Failed to process trade for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: Transaction failed or expired
+[2025-01-30T03:43:12.492Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:43:12.492Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:43:12.492Z] Waiting for 5 seconds before processing next trade...
+[2025-01-30T03:44:09.583Z] Failed to process trade for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: Transaction failed or expired
+[2025-01-30T03:44:11.337Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi

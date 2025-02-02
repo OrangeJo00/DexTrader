@@ -1,0 +1,14 @@
+[2025-01-30T03:34:38.560Z] Starting to process trade 1/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:35:10.050Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/vKPyap9o4MQmmyf9XArKSsa1SVUHvjfJ46rH5D7fRN5C2oboSsRwbveWa4e1FZjePAatATuKHZgvRzYDwH7VyXR
+[2025-01-30T03:35:10.071Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:35:10.071Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:35:10.071Z] Waiting for 5 seconds before processing next trade...
+[2025-01-30T03:36:05.051Z] Failed to process trade for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: Transaction failed or expired
+[2025-01-30T03:36:05.074Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:39:18.534Z] Starting to process trade 1/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:39:56.023Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/CYPGp1DqUVYeMaP8eUJL8wji3Gx9FmaeNbxbjJbbAxrPeG3mFVcrKc85MVbrMXwPStVPR8ugtFhDWj1KB5Dube4
+[2025-01-30T03:39:58.152Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:39:58.152Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-01-30T03:39:58.152Z] Waiting for 5 seconds before processing next trade...
+[2025-01-30T03:40:25.400Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/561K4xPJStJWM3DWjt5fkKrbhyEoT7syKmkyz8JgCXRc1GSBNGcHPz9sepeHLehBzYFVyhMBEpQ5oBvRnScK8xBp
+[2025-01-30T03:40:27.187Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi

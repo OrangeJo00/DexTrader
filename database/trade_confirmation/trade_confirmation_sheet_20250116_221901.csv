@@ -1,0 +1,5 @@
+wallet_alias,wallet_address,from_token_address,to_token_address,from_balance,to_balance,trade_pct_of_balance,trade_coin_amount,order_precedence,delay_seconds,slippage_in_pct
+test_wallet,CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3,So11111111111111111111111111111111111111112,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,20,4369,14.42%,2.884615,2,5,20%
+test_wallet2,dymm_buy_1_wallet_address_abcd,So11111111111111111111111111111111111111112,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,84,2470,14.42%,12.115385,1,5,20%
+test_wallet3,dummy_sell_1_wallet_addrss_abcd,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,So11111111111111111111111111111111111111112,2479,36,10.67%,264.48309,4,5,20%
+test_wallet4,dummy_sell_2_wallet_addrss_efgh,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,So11111111111111111111111111111111111111112,6894,72,10.67%,735.51691,3,5,20%

@@ -1,0 +1,2 @@
+wallet_alias,wallet_address,from_token_address,to_token_address,from_balance_before_execute,to_balance_before_execute,pct_of_balance,coin_amount,from_balance_after_execute,to_balance_after_execute,delay_seconds,slippage_in_pct,trade_flag
+test_wallet,CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3,So11111111111111111111111111111111111111112,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v,0.018096,2.897764,22.1%,0.004,,,,20,
