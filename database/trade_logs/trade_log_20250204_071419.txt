@@ -1,0 +1,4 @@
+[2025-02-04T07:14:19.687Z] Failed to process trade for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: failed to get recent blockhash: FetchError: request to https://rpc.ankr.com/solana/80465c767c6a5751c4cadf0778b6917d26c2d0a9ae583d3616ffaae71191a7c4 failed, reason: getaddrinfo ENOTFOUND rpc.ankr.com
+[2025-02-04T07:14:19.688Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T07:14:19.688Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T07:14:19.689Z] Waiting for 5 seconds before processing next trade...

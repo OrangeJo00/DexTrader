@@ -8,9 +8,8 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { GoogleSecretManager } from './googleSecretManager';
-import { TradeInfo, WalletKeysMap, QuoteResponse, SwapResponse } from './dataTypes';
-import { getTimestamp, appendToLog, getLatestTradeConfirmation, createWalletKeysMap, writeTradeResults, exponentialBackoff } from './utils';
+import { TradeInfo, QuoteResponse, SwapResponse } from './dataTypes';
+import { appendToLog, getLatestTradeConfirmation, createWalletKeysMap, writeTradeResults, exponentialBackoff } from './utils';
 
 // Load environment variables from .env file
 dotenv.config();
