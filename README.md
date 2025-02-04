@@ -4,101 +4,91 @@ A decentralized trading application for Solana, supporting automated trading wit
 
 ## Prerequisites
 
-- Python 3.9+
-- Node.js 16+
-- npm 8+
 - macOS 10.10+ (currently only supports macOS)
+- Node.js 16+ and npm 8+
+- Python 3.9.7 with Tk support
 
-## Setup Instructions
+## Installation Steps
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/OrangeJo00/DexTrader.git
-   cd DexTrader
-   ```
+### 1. Install Python 3.9 with Tk Support
 
-2. Copy .env.template to .env and fill in your values:
-   ```bash
-   cp .env.template .env
-   ```
-   Then edit .env with your configuration:
-   - SOLANA_RPC_URL: Your Solana RPC URL (e.g., https://api.mainnet-beta.solana.com)
-   - WALLET_KEYS_[INDEX]: Your wallet keys in format "PUBLIC_KEY:PRIVATE_KEY"
-   - Other configuration variables as needed
+```bash
+# Install Homebrew if needed
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-3. Install Python dependencies:
-   ```bash
-   # Create a virtual environment (recommended)
-   python -m venv venv
-   
-   # Activate the virtual environment
-   # On macOS/Linux:
-   source venv/bin/activate
-   # On Windows:
-   # .\venv\Scripts\activate
-   
-   # Install dependencies
-   pip install -r requirements.txt
-   ```
+# Install Python 3.9 and Tk
+brew install tcl-tk
+brew install python@3.9
+brew install python-tk@3.9
 
-4. Install Node.js dependencies:
-   ```bash
-   # Install TypeScript globally
-   npm install -g typescript ts-node
-   
-   # Install project dependencies
-   npm install
-   ```
+# Verify installation
+python3.9 --version
+python3.9 -c "import tkinter; print('Tk installation successful')"
+```
+
+### 2. Install Node.js and npm
+
+```bash
+# Check if installed
+node --version  # Should be 16+
+npm --version   # Should be 8+
+
+# Install if needed
+brew install node
+```
+
+### 3. Clone Repository
+
+```bash
+git clone https://github.com/OrangeJo00/DexTrader.git
+cd DexTrader
+```
+
+### 4. Configure Environment
+
+```bash
+# Copy environment template
+cp .env.template .env
+```
+
+Required environment variables:
+- `SOLANA_RPC_URL`: Your Solana RPC endpoint
+- `SECRET_MANAGER_PROJECT_ID`: Google Cloud project ID
+- `SECRET_MANAGER_SECRET_NAME`: Secret name for wallet keys
+- `SECRET_MANAGER_VERSION`: Version of the secret (default: latest)
+
+### 5. Install Dependencies
+
+```bash
+# Install Node.js dependencies
+npm install
+
+# Install Python dependencies
+pip3.9 install -r requirements.txt
+```
 
 ## Project Structure
 
-- `app.py` - Main application entry point with GUI interface
-- `trade_execute_service/` - Trading execution logic and Solana interactions
-- `wallet_service/` - Wallet management and balance tracking
-- `calculation_service/` - Trading calculations and strategy logic
-- `database/` - Data storage for trade confirmations and results
-- `node_modules/` - Node.js dependencies (generated after npm install)
-
-## Running the Application
-
-```bash
-# Make sure virtual environment is activated
-python app.py
+```
+DexTraderV2/
+├── app.py                    # Main GUI application
+├── trade_execute_service/    # Trading execution logic
+├── wallet_service/          # Wallet management
+├── calculation_service/     # Trading calculations
+├── database/               # Trade data storage
+└── node_modules/          # Node.js dependencies
 ```
 
-## Building
+## Usage
 
-To build the distributable:
 ```bash
-python build.py
-python prepare_dist.py
+# Run the application
+python3.9 app.py
 ```
 
-The built application will be in `DexTraderV2_Distribution_Mac_[TIMESTAMP]` directory.
+## Important Notes
 
-## Features
-
-- Multi-wallet trading support
-- Automated trade execution
-- Trade confirmation tracking
-- Balance monitoring
-- Solana token swaps via Jupiter
-- Customizable trade parameters
-
-## Notes
-
-- The application creates log files in `~/Desktop/DexTraderV2_logs/`
-- Trade confirmations and results are stored in the `database` directory
-- Make sure to keep your .env file secure and never commit it to version control
-
-## License
-
-[Your chosen license]
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- Logs are created in `~/Desktop/DexTraderV2_logs/`
+- Trade data is stored in `database/`
+- Never commit `.env` file to version control
+- Keep your wallet keys secure

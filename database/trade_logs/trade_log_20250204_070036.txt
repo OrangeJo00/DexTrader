@@ -1,0 +1,4 @@
+[2025-02-04T07:00:36.135Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/4wzErPppcEqynSzvmDCHTDFtujkqWVhdrCSgd5adqPmgfqaExcgRdbzU4YSv1Cm11v4tYgZegwK1cHKTvUYGeAG3
+[2025-02-04T07:00:36.137Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T07:00:36.137Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T07:00:36.137Z] Waiting for 5 seconds before processing next trade...

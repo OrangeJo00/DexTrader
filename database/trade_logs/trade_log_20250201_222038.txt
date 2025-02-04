@@ -12,3 +12,73 @@
 [2025-02-02T06:57:22.687Z] Waiting for 5 seconds before processing next trade...
 [2025-02-02T06:57:30.447Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/23BvMr5VYebQLKXDRNeMDZZt2qknYR7dvzJvVaLYDzYk3WQ4Bfp8JpsRHp1QnjR8hAZyP5Frx21Cktm3pj53EW2R
 [2025-02-02T06:57:30.449Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-02T07:55:41.466Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-02T07:55:44.745Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/41y5cmie2SUPdPMLcJLsVhizJuoh3XgqKACxWwu3HLQ8rBqhudHtZw8MgrVw2GwKndUkaqhhY5MXABmfiHAPDstG
+[2025-02-02T07:55:44.750Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-02T07:55:44.750Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-02T07:55:44.750Z] Waiting for 5 seconds before processing next trade...
+[2025-02-02T07:55:54.631Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/2ip9w41wu6dw5VR4H1sSEmCG9F4JqiydV3xc7nxqFqHeX39uodMV2LU5Lf5AnSKt3roB4hctYkz3Gm25pdE1smVC
+[2025-02-02T07:55:54.636Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:11:55.819Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:12:25.948Z] Failed to process trade for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: request to https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=393000&slippageBps=2000 failed, reason: getaddrinfo ENOTFOUND quote-api.jup.ag
+[2025-02-04T06:12:25.951Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:12:25.952Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:12:25.952Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:13:00.994Z] Failed to process trade for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: request to https://quote-api.jup.ag/v6/quote?inputMint=So11111111111111111111111111111111111111112&outputMint=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&amount=3607000&slippageBps=2000 failed, reason: getaddrinfo ENOTFOUND quote-api.jup.ag
+[2025-02-04T06:13:00.996Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:16:45.692Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:16:49.190Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/enn7a3tTpKpxyRa7BqWgjZresJbLFWD85YngA146WzpKkisUCCAwF9Mk6cMvkNK2dDyxrrGBYaEJGTf34Btfo2w
+[2025-02-04T06:16:49.193Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:16:49.193Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:16:49.193Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:17:03.587Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/F4cPF99PVM4h8AALKzwhpSXmkCGz6unfiJDES8nhVgiiR51vjDGG1xotpkYJy6UKsQCZYhKxSED52aVY5D6fP8Q
+[2025-02-04T06:17:03.589Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:41:44.747Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:41:55.357Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/3qsPkmBk7hLgiouLgev3nYiFvwzZaiLyZgSBQTruwjKZ7wPvYBzPCQtC9DV6T1K2YbUh4Z2PKA3yC3goVv6wm1Qr
+[2025-02-04T06:41:55.358Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:41:55.359Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:41:55.359Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:42:04.707Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/5mAJGDvnhcdqxjk7QMVVSibGTL1zZKmQYwMNRmPs7Y3eJtxEcmhQ3bfPq6yPBFK7Dkvovc3RqWPKbBvpWg4DhMvQ
+[2025-02-04T06:42:04.708Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:44:41.990Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:44:48.787Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/91bZsdRRViV531meMGUVh7DJLkZtEfvt9JzmU4gnLxgt4dc9ybHh1VkbRhD1MLJ928t9qBpyFGKppsB1SwPfovz
+[2025-02-04T06:44:48.788Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:44:48.788Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:44:48.788Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:44:58.104Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/4Jej8vXVdzZ79McHq7LtVU1uVDvdc2ZThg2GKY3eYN9TA9eXtugEYtVoihs33FhgPgnYpyGjy5sax58mUjkdChS
+[2025-02-04T06:44:58.105Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:46:09.297Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:46:12.445Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/3z1e9zmJaSpPGG8Gn3n8UUoSuxXupsg8H42VFxaAP8ejPLj8dQueBCdrpSJVASUj3JyZT4hVwb75VuLz4S4wRWdH
+[2025-02-04T06:46:12.445Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:46:12.446Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:46:12.446Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:46:22.421Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/5XiyJXMfUEFmZssPpnhtGRBp8zbai7hqdD2DLvEQt3x7nJ8Ym2F1GG6A7ARxwQU1z18VZhEwUiFoZeptLcf5WBkP
+[2025-02-04T06:46:22.422Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:46:52.438Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:47:04.526Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/4LowDQ8TcuV8FUCQqHV3iFTRKCZTbyvsghkQ8WXzRQDobGtUyc4udizsn62pwNcQboqyp212ANeed6QqaeJDu8kE
+[2025-02-04T06:47:04.526Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:47:04.526Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:47:04.526Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:47:12.923Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/2Sp6C7Hh5gfPHYm2FfUNK9hH2CriXMopPVwohKbPqtL54iQNM4c7tyV8FS4DSpMBSd7A5MQkLk7Dxt1vMoPif6xa
+[2025-02-04T06:47:12.924Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:47:27.401Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:47:29.202Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/2Z2d2ASqzQavPTd4x34osgB6o5X3cLb9qqn2gxoYJJYHX29nBg8zzFSpGzwgUKnXcUVMKkfbePTHZtW3muoktj8b
+[2025-02-04T06:47:29.203Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:47:29.203Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:47:29.203Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:47:42.331Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/3bPfG1uJc1P76L1mduEjRvNm3rYqGHD1x6upQ2Zp7WoytszZmXhs8CGLwPkXUzHCPY8wdECQJTDJJLYrq7AS4kDY
+[2025-02-04T06:47:42.333Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:47:53.826Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:47:57.162Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/4QTcGBJAC8GicyLDVa7pszwFFBLVRGaFB6ZpUgeHFshH7mcq8Q1dtNPcDDdQzziE7ATP2RFPfqLSQh8tUYcYvYV4
+[2025-02-04T06:47:57.163Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:47:57.163Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:47:57.163Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:48:06.047Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/ivc67LGsjkpPAWJXuswzqyZgcBZSRhtbEVNCqr3pvJsAtt5rwPYMF4YYzzVjtu7LXb9mt5ZbAfspGAC78ryjQnc
+[2025-02-04T06:48:06.047Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:49:27.549Z] Starting to process trade 1/2 for wallet: CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:50:02.151Z] Transaction successful for CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3: https://solscan.io/tx/4ADmCEgDsbsn4YSgj7ZaPhnbe7jbhA4HKU65ZK3xRtYN7tVpSNBS9HK57Vz6bUkphAiyfB2Xzj64xXe2BkSzie7Y
+[2025-02-04T06:50:02.152Z] Completed processing trade for wallet CjzfaJTfVPWbNp9BRMT23S24tvjTT91qXnEV4VAgGAy3
+[2025-02-04T06:50:02.152Z] Starting to process trade 2/2 for wallet: 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
+[2025-02-04T06:50:02.152Z] Waiting for 5 seconds before processing next trade...
+[2025-02-04T06:50:10.030Z] Transaction successful for 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi: https://solscan.io/tx/2WiJjWCGgAVfsifzsG7mpKzM4b95jmrVFmTMkPphNc54ypmaNYUSWiJEpyL2eAXcxhLV2EZpUcCFyJAbQ3HZSsmR
+[2025-02-04T06:50:10.031Z] Completed processing trade for wallet 8V1nPfRpSBKrDePqRv6B9mCBrn9EZ2Q5hxXPJ6upYqLi
