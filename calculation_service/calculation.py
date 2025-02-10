@@ -82,7 +82,7 @@ def generate_trade_confirmation():
             
             for _, wallet in matching_wallets.iterrows():
                 # Remove % sign from slippage if present
-                slippage = order['slippage_pct'].replace('%', '') if isinstance(order['slippage_pct'], str) else order['slippage_pct']
+                slippage = str(order['slippage_pct']).strip().replace('\r', '').replace('%', '')
                 coin_amount = round(wallet['from_balance'] * pct_of_balance / 100, 6)
                 row = {
                     'wallet_alias': wallet['wallet_alias'],

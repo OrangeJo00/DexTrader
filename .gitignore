@@ -12,12 +12,19 @@ __pycache__/
 env/
 venv/
 .env
+.venv/
 
 # Build
 dist/
 build/
 *.spec
 DexTraderV2_Distribution*/
+database/trade_confirmation/*
+database/trade_results/*
+database/trade_logs/*
+database/order_table.csv
+database/wallet_database.csv
+database/generated_orders.csv
 
 # IDE
 .vscode/

@@ -8,6 +8,7 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import { parse } from 'csv-parse/sync';
 import { TradeInfo, QuoteResponse, SwapResponse } from './dataTypes';
 import { appendToLog, getLatestTradeConfirmation, createWalletKeysMap, writeTradeResults, exponentialBackoff } from './utils';
 
@@ -41,6 +42,11 @@ interface CustomError {
     message: string;
 }
 
+interface TokenInfo {
+    token: string;
+    token_decimals: number;
+}
+
 // Get latest trade confirmation sheet
 const latestConfirmationPath = getLatestTradeConfirmation(TRADE_CONF_DIR);
 const tradeData = latestConfirmationPath ? fs.readFileSync(latestConfirmationPath, 'utf-8') : null;
@@ -55,6 +61,20 @@ const headers = csvLines?.[0]?.split(',');
 if (!headers || csvLines.length < 2) {
     throw new Error('Invalid CSV format');
 }
+
+function getTokenDecimals(tokenAddress: string): number {
+    const tokenInfoPath = path.join(__dirname, '..', 'database', 'token_info.csv');
+    const fileContent = fs.readFileSync(tokenInfoPath, 'utf-8');
+    const records = parse(fileContent, { columns: true }) as TokenInfo[];
+    
+    const tokenInfo = records.find(record => record.token === tokenAddress);
+    if (!tokenInfo) {
+        throw new Error(`Token ${tokenAddress} not found in token_info.csv`);
+    }
+    
+    return parseInt(tokenInfo.token_decimals.toString());
+}
+
 
 // Process all lines except header into TradeInfo array
 const tradeInfoList: TradeInfo[] = csvLines.slice(1).map(line => {
@@ -101,7 +121,9 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
             }
 
             console.log("Processing trade:", tradeInfo);
-            const amountInLamports = Math.floor(parseFloat(tradeInfo.coin_amount) * 1e9);
+            // get token decimals from csv
+            const tokenDecimals = getTokenDecimals(tradeInfo.from_token_address);
+            const amountInLamports = Math.floor(parseFloat(tradeInfo.coin_amount) * 10^tokenDecimals);
             const slippageBps = Math.floor(parseFloat(tradeInfo.slippage_in_pct) * 100);
 
             const privateKey = walletKeysMap[tradeInfo.wallet_address];
@@ -117,7 +139,8 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
                 await fetch(`https://quote-api.jup.ag/v6/quote?inputMint=${tradeInfo.from_token_address}\
 &outputMint=${tradeInfo.to_token_address}\
 &amount=${amountInLamports}\
-&slippageBps=${slippageBps}`
+&slippageBps=${slippageBps}\
+&restrictIntermediateTokens=true`  //https://station.jup.ag/docs/old/apis/landing-transactions
                 )
             ).json() as QuoteResponse;
 

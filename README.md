@@ -27,7 +27,7 @@ python3.9 -c "import tkinter; print('Tk installation successful')"
 ```
 
 ### 2. Node.js Setup
-
+·
 ```bash
 # Check versions
 node --version  # Should be 16+
@@ -69,7 +69,6 @@ cp .env.template .env
 
 # Install Node.js dependencies
 npm install
-
 ```
 
 ### Python Virtual Environment Setup
@@ -158,6 +157,15 @@ rm -rf .venv/
 python3.9 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+### Reinstall Node.js Dependencies
+```bash
+rm -rf node_modules package-lock.json
+npm cache clean --force
+npm install
+npm run build
+npm run start
 ```
 
 ### Update the secret in google cloud secret manager
