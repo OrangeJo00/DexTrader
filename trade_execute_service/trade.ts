@@ -19,7 +19,11 @@ const SOLANA_RPC_URL = process.env.SOLANA_RPC_URL;
 if (!SOLANA_RPC_URL) {
     throw new Error('SOLANA_RPC_URL is not defined in environment variables');
 }
-const connection = new Connection(SOLANA_RPC_URL);
+
+const connection = new Connection(SOLANA_RPC_URL, {
+    commitment: 'confirmed',
+    wsEndpoint: 'wss://rpc.ankr.com/solana/ws'
+  });
 
 // Get the correct base directory
 const baseDir = path.join(__dirname, '..');
