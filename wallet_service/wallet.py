@@ -59,25 +59,27 @@ class Wallet:
                     response = await client.post(
                         self.url,
                         json=payload,
-                        headers=headers
+                        headers=headers,
+                        timeout=10.0  # Add timeout
                     )
                     response.raise_for_status()
                     return response.json()
 
-            except httpx.HTTPStatusError as e:
-                if e.response.status_code == 429:  # Rate limit error
+            except Exception as e:
+                wait_time = self.backoff_factor ** attempt
+                
+                if isinstance(e, httpx.HTTPStatusError) and e.response.status_code == 429:
+                    # Rate limit error - use server's retry-after time
                     retry_after = int(e.response.headers.get("Retry-After", 1))
-                    wait_time = self.backoff_factor ** attempt + retry_after
-                    print(f"Rate limited. Retrying in {wait_time} seconds...")
+                    wait_time += retry_after
+                
+                if attempt < self.max_retries - 1:
+                    print(f"Request failed (attempt {attempt + 1}/{self.max_retries}). "
+                          f"Error: {str(e)}. Retrying in {wait_time} seconds...")
                     await asyncio.sleep(wait_time)
                 else:
-                    raise e
-
-        raise httpx.HTTPStatusError(
-            f"Exceeded maximum retries for {method}",
-            request=None,
-            response=None
-        )
+                    print(f"All attempts failed. Last error: {str(e)}")
+                    raise
 
     async def get_balance(self) -> float:
         """

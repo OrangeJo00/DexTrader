@@ -3,6 +3,8 @@ import sys
 import traceback
 import logging
 from datetime import datetime
+import pandas as pd
+from glob import glob
 
 # Set up logging in a more accessible location
 home_dir = os.path.expanduser('~')
@@ -337,24 +339,27 @@ class AutoTradeApp:
 
         if return_code == 0:
             messagebox.showinfo("Success", "Trade execution completed successfully")
-            # Show updating wallet balance message in log
-            self.update_log("\n" + "="*50)
-            self.update_log("Starting wallet balance update...")
-            self.update_log("="*50 + "\n")
-            # Automatically run update selected wallet balance
-            self.run_async_task("update_selected")
+
         else:
             error_msg = stderr if stderr else stdout
             messagebox.showerror("Error", f"Trade execution failed:\n{error_msg}")
+        self.open_latest_trade_results()
 
-    def run_async_task(self, update_mode):
+        # Show updating wallet balance message in log
+        self.update_log("\n" + "="*50)
+        self.update_log("Starting wallet balance update...")
+        self.update_log("="*50 + "\n")
+        # Automatically run update selected wallet balance without opening CSV
+        self.run_async_task("update_selected", auto_open_csv=False)
+
+    def run_async_task(self, update_mode, auto_open_csv=True):
         """Start async task in a separate thread"""
         self.disable_buttons()
         self.progress.start()
         self.status_label.config(text="Processing...")
         
         thread = threading.Thread(
-            target=lambda: asyncio.run(self.process_wallets(update_mode))
+            target=lambda: asyncio.run(self.process_wallets(update_mode, auto_open_csv))
         )
         thread.start()
 
@@ -368,8 +373,12 @@ class AutoTradeApp:
         self.update_all_button.state(['!disabled'])
         self.update_selected_button.state(['!disabled'])
 
-    async def process_wallets(self, update_mode):
-        """Process wallets and update GUI"""
+    async def process_wallets(self, update_mode, auto_open_csv=False):
+        """Process wallets and update GUI
+        Args:
+            update_mode: Mode for updating wallets
+            auto_open_csv: Whether to automatically open CSV after update (default: True)
+        """
         try:
             self.status_label.config(text="Loading wallets...")
             wallets_df = await load_wallets(update_mode=update_mode)
@@ -384,9 +393,9 @@ class AutoTradeApp:
             self.status_label.config(text="Saving results...")
             await save_updated_database(updated_df)
             
-            # Open the CSV file after successful update
-            self.root.after(100, lambda: open_file(WORKING_DATABASE_PATH))
-            
+            # Remove delay for file opening
+            if auto_open_csv:
+                self.root.after(0, lambda: open_file(WORKING_DATABASE_PATH))
             self.root.after(0, self.on_task_complete, "Update selected wallet balances successfully!")
             
         except Exception as e:
@@ -425,6 +434,31 @@ class AutoTradeApp:
         """Update the log display with new message"""
         self.log_display.insert(tk.END, f"{message}\n")
         self.log_display.see(tk.END)  # Auto-scroll to bottom
+
+    def open_latest_trade_results(self):
+        """Open the latest trade_results CSV file using the default system application"""
+        try:
+            # Get the latest trade results file from the correct subdirectory
+            results_dir = os.path.join("database", "trade_results")
+            pattern = os.path.join(results_dir, "trade_results_*.csv")
+            files = glob(pattern)
+            
+            if not files:
+                messagebox.showwarning("Warning", "No trade results file found")
+                return
+                
+            latest_file = max(files, key=os.path.getctime)
+            
+            # Open file based on platform
+            if sys.platform.startswith('darwin'):  # macOS
+                subprocess.run(['open', latest_file])
+            elif sys.platform.startswith('win32'):  # Windows
+                os.startfile(latest_file)
+            else:  # Linux
+                subprocess.run(['xdg-open', latest_file])
+                
+        except Exception as e:
+            messagebox.showerror("Error", f"Could not open trade results file: {str(e)}")
 
 def main():
     try:

@@ -11,11 +11,18 @@ export const getTimestamp = (useConfirmationTime: boolean = true, confirmationPa
             return match[1];
         }
     }
-    const now = new Date();
-    return now.toISOString()
-        .replace(/[-:]/g, '')
-        .replace('T', '_')
-        .split('.')[0];
+    
+    return new Date().toLocaleString('en-US', { 
+        timeZone: 'America/Los_Angeles',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+    }).replace(/[/:]/g, '')
+        .replace(', ', '_');
 };
 
 export const appendToLog = (message: string, logsDir: string): void => {

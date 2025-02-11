@@ -49,54 +49,39 @@ interface TokenInfo {
 
 // Get latest trade confirmation sheet
 const latestConfirmationPath = getLatestTradeConfirmation(TRADE_CONF_DIR);
-const tradeData = latestConfirmationPath ? fs.readFileSync(latestConfirmationPath, 'utf-8') : null;
 
-// Parse CSV data
-const csvLines = tradeData?.split('\n').filter(line => line.trim()); // Remove empty lines
-if (!csvLines || !csvLines[0]) {
+// Read and validate trade data
+const tradeData = latestConfirmationPath ? fs.readFileSync(latestConfirmationPath, 'utf-8') : null;
+if (!tradeData) {
     throw new Error('No trade data found');
 }
 
-const headers = csvLines?.[0]?.split(',');
-if (!headers || csvLines.length < 2) {
-    throw new Error('Invalid CSV format');
+// Get headers from first row
+const headers = tradeData.split('\n')[0].split(',').map(h => h.trim());
+
+function cleanValue(value: any): string {
+    return typeof value === 'string' ? value.replace(/[\r\n]/g, '').trim() : value?.toString() || '';
 }
 
-function getTokenDecimals(tokenAddress: string): number {
-    const tokenInfoPath = path.join(__dirname, '..', 'database', 'token_info.csv');
-    const fileContent = fs.readFileSync(tokenInfoPath, 'utf-8');
-    const records = parse(fileContent, { columns: true }) as TokenInfo[];
-    
-    const tokenInfo = records.find(record => record.token === tokenAddress);
-    if (!tokenInfo) {
-        throw new Error(`Token ${tokenAddress} not found in token_info.csv`);
-    }
-    
-    return parseInt(tokenInfo.token_decimals.toString());
-}
+// Parse CSV and map to TradeInfo objects
+const tradeInfoList: TradeInfo[] = parse(tradeData, {
+    columns: true,
+    skip_empty_lines: true,
+    trim: true
+}).map((raw: any) => ({
+    wallet_address: cleanValue(raw.wallet_address),
+    coin_amount: cleanValue(raw.coin_amount),
+    slippage_in_pct: cleanValue(raw.slippage_in_pct),
+    from_token_address: cleanValue(raw.from_token_address),
+    to_token_address: cleanValue(raw.to_token_address),
+    wallet_alias: cleanValue(raw.wallet_alias),
+    from_balance_before_execute: cleanValue(raw.from_balance_before_execute),
+    to_balance_before_execute: cleanValue(raw.to_balance_before_execute),
+    pct_of_balance: cleanValue(raw.pct_of_balance),
+    delay_seconds: cleanValue(raw.delay_seconds)
+}));
 
-
-// Process all lines except header into TradeInfo array
-const tradeInfoList: TradeInfo[] = csvLines.slice(1).map(line => {
-    const values = line.split(',');
-
-    const rawTradeInfo = Object.fromEntries(
-        headers.map((h: string, i: number) => [h, values[i]])
-    );
-
-    // Validate and create TradeInfo object
-    const tradeInfo: TradeInfo = {
-        wallet_address: rawTradeInfo.wallet_address,
-        coin_amount: rawTradeInfo.coin_amount,
-        slippage_in_pct: rawTradeInfo.slippage_in_pct,
-        from_token_address: rawTradeInfo.from_token_address,
-        to_token_address: rawTradeInfo.to_token_address,
-        ...rawTradeInfo
-    };
-    return tradeInfo;
-});
-
-console.log(`Found ${tradeInfoList.length} trades to process`);
+logAndSave(`Found ${tradeInfoList.length} trades to process`);
 
 // Ensure directory exists
 if (!fs.existsSync(TRADE_RESULTS_DIR)) {
@@ -120,10 +105,10 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
                 }
             }
 
-            console.log("Processing trade:", tradeInfo);
+            logAndSave(`Processing trade: ${JSON.stringify(tradeInfo)}`);
             // get token decimals from csv
             const tokenDecimals = getTokenDecimals(tradeInfo.from_token_address);
-            const amountInLamports = Math.floor(parseFloat(tradeInfo.coin_amount) * 10^tokenDecimals);
+            const amountInLamports = Math.floor(parseFloat(tradeInfo.coin_amount) * Math.pow(10, tokenDecimals));
             const slippageBps = Math.floor(parseFloat(tradeInfo.slippage_in_pct) * 100);
 
             const privateKey = walletKeysMap[tradeInfo.wallet_address];
@@ -131,10 +116,10 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
                 throw new Error(`No private key found for wallet: ${tradeInfo.wallet_address}`);
             }
 
-            console.log('Starting wallet initialization...');
+            logAndSave('Starting wallet initialization...');
 
             const wallet = new Wallet(Keypair.fromSecretKey(bs58.decode(privateKey || '')));
-            console.log('Fetching quote from Jupiter...');
+            logAndSave('Fetching quote from Jupiter...');
             const quoteResponse = await (
                 await fetch(`https://quote-api.jup.ag/v6/quote?inputMint=${tradeInfo.from_token_address}\
 &outputMint=${tradeInfo.to_token_address}\
@@ -144,7 +129,7 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
                 )
             ).json() as QuoteResponse;
 
-            console.log('Quote response:', quoteResponse);
+            logAndSave(`Quote response: ${JSON.stringify(quoteResponse)}`);
 
             // get serialized transactions for the swap
             const { swapTransaction } = await (
@@ -202,6 +187,15 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
 
                         // Write results to file
                         writeTradeResults(tradeInfoList, headers, TRADE_RESULTS_DIR);
+
+                        // After successful transaction
+                        logAndSave(
+                            `Successfully swapped ${tradeInfo.coin_amount} from ${tradeInfo.from_token_address} to ${tradeInfo.to_token_address} ` +
+                            `for wallet ${tradeInfo.wallet_address}\n` +
+                            `Transaction ID: ${transactionId}`,
+                            TRADE_LOGS_DIR
+                        );
+
                         break;
                     }
                 } catch (error: unknown) {
@@ -225,7 +219,11 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
                 throw new Error('Transaction failed or expired');
             }
 
-            console.log(`Completed processing trade for wallet ${tradeInfo.wallet_address}`);
+            logAndSave(`Completed processing trade for wallet ${tradeInfo.wallet_address}`);
+            appendToLog(
+                `Completed processing trade for wallet ${tradeInfo.wallet_address} - Status: ${tradeInfo.status || 'unknown'}, TX: ${tradeInfo.transaction_id || 'none'}`, 
+                TRADE_LOGS_DIR
+            );
         } catch (error: unknown) {
             const err = error as CustomError;
             appendToLog(`Failed to process trade for ${tradeInfo.wallet_address}: ${err.message}`, TRADE_LOGS_DIR);
@@ -246,3 +244,23 @@ main(tradeInfoList).catch(error => {
 });
 
 const execAsync = promisify(exec);
+
+
+function getTokenDecimals(tokenAddress: string): number {
+    const tokenInfoPath = path.join(__dirname, '..', 'database', 'token_info.csv');
+    const fileContent = fs.readFileSync(tokenInfoPath, 'utf-8');
+    const records = parse(fileContent, { columns: true }) as TokenInfo[];
+    
+    const tokenInfo = records.find(record => record.token === tokenAddress);
+    if (!tokenInfo) {
+        throw new Error(`Token ${tokenAddress} not found in token_info.csv`);
+    }
+    
+    return parseInt(tokenInfo.token_decimals.toString());
+}
+
+// Replace console.log statements with this function
+function logAndSave(message: string, dir: string = TRADE_LOGS_DIR) {
+    console.log(message);
+    appendToLog(message, dir);
+}
