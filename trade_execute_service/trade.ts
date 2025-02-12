@@ -20,9 +20,11 @@ if (!SOLANA_RPC_URL) {
     throw new Error('SOLANA_RPC_URL is not defined in environment variables');
 }
 
-const connection = new Connection(SOLANA_RPC_URL, {
+// todo: change to use websocket connection
+// SOLANA_RPC_URL = 'wss://rpc.ankr.com/solana/ws/80465c767c6a5751c4cadf0778b6917d26c2d0a9ae583d3616ffaae71191a7c4'
+const websocket_connection = new Connection(SOLANA_RPC_URL, {
     commitment: 'confirmed',
-    wsEndpoint: 'wss://rpc.ankr.com/solana/ws'
+    wsEndpoint: 'wss://rpc.ankr.com/solana/ws/80465c767c6a5751c4cadf0778b6917d26c2d0a9ae583d3616ffaae71191a7c4'
   });
 
 // Get the correct base directory
@@ -160,7 +162,7 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
             }
 
             // Get fresh blockhash right before transaction
-            const blockhashWithExpiryBlockHeight = await connection.getLatestBlockhash('finalized');
+            const blockhashWithExpiryBlockHeight = await websocket_connection.getLatestBlockhash('finalized');
 
             // deserialize and sign the transaction
             const swapTransactionBuf = Buffer.from(swapTransaction, 'base64');
@@ -176,7 +178,7 @@ async function main(tradeInfoList: TradeInfo[]): Promise<void> {
             for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
                 try {
                     txResponse = await transactionSenderAndConfirmationWaiter({
-                        connection,
+                        connection: websocket_connection,
                         serializedTransaction: Buffer.from(serializedTransaction),
                         blockhashWithExpiryBlockHeight,
                     });
