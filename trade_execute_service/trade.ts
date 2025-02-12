@@ -16,15 +16,14 @@ import { appendToLog, getLatestTradeConfirmation, createWalletKeysMap, writeTrad
 dotenv.config();
 
 const SOLANA_RPC_URL = process.env.SOLANA_RPC_URL;
-if (!SOLANA_RPC_URL) {
-    throw new Error('SOLANA_RPC_URL is not defined in environment variables');
+const SOLANA_WS_URL = process.env.SOLANA_WS_URL;
+if (!SOLANA_RPC_URL || !SOLANA_WS_URL) {
+    throw new Error('SOLANA_RPC_URL or SOLANA_WS_URL is not defined in environment variables');
 }
 
-// todo: change to use websocket connection
-// SOLANA_RPC_URL = 'wss://rpc.ankr.com/solana/ws/80465c767c6a5751c4cadf0778b6917d26c2d0a9ae583d3616ffaae71191a7c4'
 const websocket_connection = new Connection(SOLANA_RPC_URL, {
     commitment: 'confirmed',
-    wsEndpoint: 'wss://rpc.ankr.com/solana/ws/80465c767c6a5751c4cadf0778b6917d26c2d0a9ae583d3616ffaae71191a7c4'
+    wsEndpoint: SOLANA_WS_URL
   });
 
 // Get the correct base directory
